@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beranda | Keamanan Data</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      background: #f5f7fa;
+      color: #333;
+    }
+
+    /* Header */
+    header {
+      background: #1e3c72;
+      color: white;
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 22px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+      transition: 0.3s;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      color: #00b4d8;
+    }
+
+    /* Konten utama */
+    .container {
+      max-width: 1000px;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 28px;
+      margin-bottom: 40px;
+      color: #1e3c72;
+      position: relative;
+    }
+
+    h2::after {
+      content: "✨";
+      position: absolute;
+      margin-left: 10px;
+    }
+
+    /* Grid kartu topik */
+    .topics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+    }
+
+    .topic-card {
+      background: white;
+      border: 2px solid #e0e0e0;
+      border-radius: 12px;
+      padding: 25px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s;
+    }
+
+    .topic-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+      border-color: #1e3c72;
+    }
+
+    .topic-icon {
+      font-size: 36px;
+      margin-bottom: 15px;
+      color: #1e3c72;
+    }
+
+    .topic-title {
+      font-weight: 700;
+      font-size: 18px;
+      margin-bottom: 10px;
+      color: #1e3c72;
+    }
+
+    .topic-desc {
+      font-size: 14px;
+      color: #555;
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #1e3c72;
+      color: white;
+      padding: 10px 18px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #2a5298;
+    }
+
+    .logout {
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    .logout button {
+      padding: 10px 25px;
+      background: #ff4d6d;
+      border: none;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 15px;
+      transition: 0.3s;
+    }
+
+    .logout button:hover {
+      background: #d90429;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>📘 Keamanan Data</h1>
+    <nav>
+      <span id="welcome"></span>
+      <a href="#" onclick="logout()">Logout</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <h2>Topik yang Dipraktikkan</h2>
+
+    <div class="topics-grid">
+      <!-- Kartu 1 -->
+      <div class="topic-card">
+        <div class="topic-icon">🗄️</div>
+        <div class="topic-title">SQL Injection</div>
+        <div class="topic-desc">
+          Pengantar dan praktik langsung bagaimana serangan ini memanipulasi query database untuk mendapatkan akses tidak sah.
+        </div>
+        <a href="#" class="btn">Pelajari</a>
+      </div>
+
+      <!-- Kartu 2 -->
+      <div class="topic-card">
+        <div class="topic-icon">💻</div>
+        <div class="topic-title">Cross-Site Scripting (XSS)</div>
+        <div class="topic-desc">
+          Pengantar dan praktik langsung bagaimana penyerang menyuntikkan skrip berbahaya ke situs web yang dipercaya pengguna.
+        </div>
+        <a href="#" class="btn">Pelajari</a>
+      </div>
+
+      <!-- Kartu 3 -->
+      <div class="topic-card">
+        <div class="topic-icon">📂</div>
+        <div class="topic-title">Kerentanan File Upload</div>
+        <div class="topic-desc">
+          Pengantar dan praktik langsung mengenai risiko mengizinkan upload file tanpa validasi yang tepat, yang bisa dieksploitasi.
+        </div>
+        <a href="#" class="btn">Pelajari</a>
+      </div>
+
+      <!-- Kartu 4 -->
+      <div class="topic-card">
+        <div class="topic-icon">🔒</div>
+        <div class="topic-title">Broken Access Control</div>
+        <div class="topic-desc">
+          Pengantar dan praktik langsung mengenai bagaimana kelemahan kontrol akses memungkinkan pengguna untuk bertindak di luar izin yang seharusnya.
+        </div>
+        <a href="#" class="btn">Pelajari</a>
+      </div>
+    </div>
+
+    <div class="logout">
+      <button onclick="logout()">Keluar</button>
+    </div>
+  </div>
+
+  <script>
+    const user = localStorage.getItem("username");
+    if (!user) {
+      window.location.href = "login.html";
+    } else {
+      document.getElementById("welcome").innerText = "Halo, " + user;
+    }
+
+    function logout() {
+      localStorage.removeItem("username");
+      window.location.href = "login.html";
+    }
+  </script>
+</body>
+</html>
