@@ -228,8 +228,8 @@ $lastLogin = date('d M Y, H:i');
     }
 
     .card.vulnerable .icon-wrap{
-      background: linear-gradient(135deg, #ef4444, #dc2626);
-      box-shadow: 0 4px 16px rgba(239,68,68,0.3);
+      background: linear-gradient(135deg, #93c5fd, #5ca3f4ff);
+      box-shadow: 0 4px 16px rgba(123, 110, 242, 0.3);
     }
 
     .card.vulnerable .label{
