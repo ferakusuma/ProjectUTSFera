@@ -130,7 +130,7 @@ $comments = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <small class="text-muted">Signed in as: <strong><?php echo htmlspecialchars($user['username']); ?></strong></small>
           </div>
           <div>
-            <a class="btn btn-outline-warning btn-sm" href="dashboard.php">Kembali</a>
+            <a class="btn btn-outline-warning btn-sm" href="dashboard_XSS.php">Kembali</a>
           </div>
         </div>
 
